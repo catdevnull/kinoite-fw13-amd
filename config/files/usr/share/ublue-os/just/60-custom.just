@@ -21,5 +21,7 @@ check_psr:
 # Setup screen color profile
 fw13-amd-colors:
   #!/usr/bin/env bash
-  colormgr device-add-profile $(colormgr get-devices | grep 'Object Path:' | head -n1 | awk '{ print $3 }') /org/freedesktop/ColorManager/profiles/icc_61a9306b9acc9420d7cb33e30d9892bb
-  sudo systemd enable colord
+  device_id=$(colormgr get-devices | grep 'Object Path:' | head -n1 | awk '{ print $3 }')
+  profile_id=/org/freedesktop/ColorManager/profiles/icc_61a9306b9acc9420d7cb33e30d9892bb
+  colormgr device-add-profile $device_id $profile_id
+  colormgr device-make-profile-default $device_id $profile_id
