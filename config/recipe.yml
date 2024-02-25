@@ -38,6 +38,5 @@ modules:
       - power_profiles_daemon.sh
       # - update_firmware.sh
       # - mesa_git.sh
-      - environment.sh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
