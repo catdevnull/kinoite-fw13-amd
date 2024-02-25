@@ -6,5 +6,6 @@
 set -oue pipefail
 
 # Your code goes here.
-echo 'This is an example shell script'
-echo 'Scripts here will run during build if specified in recipe.yml'
+echo 'Installing AMDGPU_TOP'
+
+rpm-ostree install https://github.com/Umio-Yasuno/amdgpu_top/releases/download/v0.3.1/amdgpu_top-0.3.1-1.x86_64.rpm

@@ -1,46 +1,43 @@
 # image will be published to ghcr.io/<user>/<name>
 name: kinoite-fw13-amd
-# description will be included in the image's metadata
-description: This is my personal OS image.
+description: Kinoite for the Framework 13 - AMD 7040 Series
 
-# the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/kinoite-main
 image-version: 39 # latest is also supported if you want new updates ASAP
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
+# https://github.com/achhabra2/fw13-amd-kinoite/blob/live/config/recipe.yml
+
 modules:
   - type: files
     files:
-      - usr: /usr
+      - usr:
+          /usr
           # copies config/files/usr into your image's /usr.
-          # put configuration files you want in /etc/ on a booted system 
+          # put configuration files you want in /etc/ on a booted system
           # in /usr/etc/ in the image. read more in files module reference.
 
   - type: rpm-ostree
-    repos: # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+    repos:
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://copr.fedorainfracloud.org/coprs/mariolimonciello/power-profiles-daemon/repo/fedora-%OS_VERSION%/mariolimonciello-power-profiles-daemon-fedora-%OS_VERSION%.repo
     install:
-      # - micro
-      # - starship
-    remove:
-      - firefox # default firefox removed in favor of flatpak
-      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+      - powertop
+      - tailscale
+      - fish
+      - kernel-tools # Needed for cpupower and turbostat
+      - python3-pyudev # Needed for AMD S2Idle Debug Script
+      - acpica-tools # Needed for AMD S2Idle Debug Script
+      - rocm-hip
+      - rocm-opencl
+      - rocm-clinfo
 
-  - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      # repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      # repo-name: flathub
-      # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
-      install:
-        - org.mozilla.firefox
-        # - org.gnome.Loupe
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
-        # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
-        # only normal flatpak applications are (like Floorp Lightning web browser in this example).
-        # Installing different branches of the same Flatpak is not supported.
-      remove:
-        # - org.gnome.eog
+  - type: script
+    scripts:
+      # this sets up the proper policy & signing files for signed images to work
+      - amdgpu_top.sh
+      - power_profiles_daemon.sh
+      # - update_firmware.sh
+      # - mesa_git.sh
+      - environment.sh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
