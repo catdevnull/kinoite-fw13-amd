@@ -24,6 +24,7 @@ modules:
       - powertop
       - tailscale
       - fish
+      - wl-clipboard
       - kernel-tools # Needed for cpupower and turbostat
       - python3-pyudev # Needed for AMD S2Idle Debug Script
       - acpica-tools # Needed for AMD S2Idle Debug Script
