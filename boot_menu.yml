@@ -1,5 +1,5 @@
 ublue_variants:
-  - label: blue-build/template
+  - label: catdevnull/kinoite-fw13-amd
     ks: /kickstart/ublue-os.ks
     flavors:
-      - label: blue-build/template
+      - label: kinoite-fw13-amd
