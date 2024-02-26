@@ -31,6 +31,17 @@ modules:
       - rocm-hip
       - rocm-opencl
       - rocm-clinfo
+      # tuned, copied roughly from Bluefin
+      - tuned
+      - tuned-ppd
+      - tuned-utils
+      - tuned-profiles-atomic
+    remove:
+      - power-profiles-daemon
+  - type: systemd
+    system:
+      enabled:
+        - tuned.service
 
   - type: script
     scripts:
