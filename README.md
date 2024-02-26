@@ -1,8 +1,14 @@
 # kinoite-fw13-amd
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+Heavily inspired on [achhabra2's images](https://github.com/achhabra2/fw13-amd-kinoite), this image is a lightweight layer on top of UBlue's Kinoite with a few tweaks for the Framework 13 (AMD 7040 series).
 
-After setup, it is recommended you update this README to describe your custom image.
+## Features
+
+- Scripts to setup special kernel arguments needed for a smooth experience in the FW13 AMD
+  - Including one to setup the display's color profile :)
+- `amdgpu_top` and some ROCM stuff from upstream which I haven't tested :)
+- `amd_s2idle.py` already installed with dependencies
+- A few extras (powertop, tailscale, fish shell, wl-clipboard)
 
 ## Installation
 
@@ -27,26 +33,18 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
   systemctl reboot
   ```
+- Setup recommended kernel arguments and screen color profile:
+  ```
+  just fw13-amd
+  just fw13-amd-colors
+  ```
 
 The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
-
-## ISO
-
-> **Warning**  
-> The ISO GitHub Action will be deprecated soon in favor of the new [ublue-os/isogenerator](https://github.com/ublue-os/isogenerator). The Action will then be removed from this template repository and instructions for building ISOs will be on the website.
-
-This template includes a simple GitHub Action to build and release an ISO of your image.
-
-To run the action, simply edit the `boot_menu.yml` by changing all the references to startingpoint to your repository. This should trigger the action automatically.
-
-The Action currently uses [ublue-os/isogenerator-old](https://github.com/ublue-os/isogenerator-old) and works in a similar manner to the official Universal Blue ISO. If you have any issues, you should first check [the documentation page on installation](https://universal-blue.org/installation/). The ISO is a netinstaller and should always pull the latest version of your image.
-
-Note that this release-iso action is not a replacement for a full-blown release automation like [release-please](https://github.com/googleapis/release-please).
 
 ## Verification
 
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/blue-build/legacy-template
+cosign verify --key cosign.pub ghcr.io/catdevnull/kinoite-fw13-amd
 ```
