@@ -45,9 +45,7 @@ modules:
 
   - type: script
     scripts:
-      # this sets up the proper policy & signing files for signed images to work
       - amdgpu_top.sh
-      - power_profiles_daemon.sh
       # - update_firmware.sh
       # - mesa_git.sh
 
