@@ -8,45 +8,5 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # https://github.com/achhabra2/fw13-amd-kinoite/blob/live/config/recipe.yml
 
 modules:
-  - type: files
-    files:
-      - usr:
-          /usr
-          # copies config/files/usr into your image's /usr.
-          # put configuration files you want in /etc/ on a booted system
-          # in /usr/etc/ in the image. read more in files module reference.
-
-  - type: rpm-ostree
-    repos:
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-      - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
-    install:
-      - powertop
-      - tailscale
-      - fish
-      - wl-clipboard
-      - kernel-tools # Needed for cpupower and turbostat
-      - python3-pyudev # Needed for AMD S2Idle Debug Script
-      - acpica-tools # Needed for AMD S2Idle Debug Script
-      - rocm-hip
-      - rocm-opencl
-      - rocm-clinfo
-      # tuned, copied roughly from Bluefin
-      - tuned
-      - tuned-ppd
-      - tuned-utils
-      - tuned-profiles-atomic
-    remove:
-      - power-profiles-daemon
-  - type: systemd
-    system:
-      enabled:
-        - tuned.service
-
-  - type: script
-    scripts:
-      - amdgpu_top.sh
-      # - update_firmware.sh
-      # - mesa_git.sh
-
+  - from-file: common.yml
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
