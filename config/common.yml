@@ -16,6 +16,7 @@ modules:
       - tailscale
       - fish
       - wl-clipboard
+      - git-lfs
 
       - rclone
       - restic
