@@ -33,6 +33,8 @@ modules:
       - tuned-utils
       - tuned-profiles-atomic
 
+      - gnome-shell-extension-caffeine
+
       - virt-manager
       - virt-viewer
       - qemu-char-spice
