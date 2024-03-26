@@ -24,9 +24,6 @@ modules:
       - kernel-tools # Needed for cpupower and turbostat
       - python3-pyudev # Needed for AMD S2Idle Debug Script
       - acpica-tools # Needed for AMD S2Idle Debug Script
-      - rocm-hip
-      - rocm-opencl
-      - rocm-clinfo
       # tuned, copied roughly from Bluefin
       - tuned
       - tuned-ppd
