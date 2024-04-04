@@ -25,7 +25,7 @@ jobs:
           # !! Add your recipes here
           - recipe-gnome.yml
           - recipe-gnome-40.yml
-          # - recipe-gnome-40-secureblue.yml
+          - recipe-gnome-40-secureblue.yml
           - recipe-kde.yml
     steps:
       # the build is fully handled by the reusable github action
