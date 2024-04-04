@@ -48,6 +48,8 @@ modules:
       - qemu
 
       - brave-browser
+    optfix:
+      - brave.com
     remove:
       - power-profiles-daemon
   - type: systemd
