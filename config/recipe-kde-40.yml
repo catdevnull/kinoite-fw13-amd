@@ -9,4 +9,8 @@ image-version: 40 # latest is also supported if you want new updates ASAP
 
 modules:
   - from-file: common.yml
+  - type: rpm-ostree
+    install:
+      - kontact
+      - merkuro
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
