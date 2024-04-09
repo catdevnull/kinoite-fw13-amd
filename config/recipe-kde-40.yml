@@ -1,0 +1,12 @@
+# image will be published to ghcr.io/<user>/<name>
+name: kinoite-fw13-amd
+description: Kinoite for the Framework 13 - AMD 7040 Series
+
+base-image: ghcr.io/ublue-os/kinoite-main
+image-version: 40 # latest is also supported if you want new updates ASAP
+
+# https://github.com/achhabra2/fw13-amd-kinoite/blob/live/config/recipe.yml
+
+modules:
+  - from-file: common.yml
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
