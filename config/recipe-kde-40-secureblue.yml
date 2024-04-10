@@ -3,7 +3,7 @@ name: nulo-os-kinoite-secureblue
 description: Kinoite Secureblue for the Framework 13 - AMD 7040 Series
 
 base-image: ghcr.io/secureblue/kinoite-main-userns-hardened
-image-version: 40 # latest is also supported if you want new updates ASAP
+image-version: br-f40-40 # latest is also supported if you want new updates ASAP
 
 # https://github.com/achhabra2/fw13-amd-kinoite/blob/live/config/recipe.yml
 
