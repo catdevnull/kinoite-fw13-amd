@@ -28,6 +28,7 @@ jobs:
           - recipe-gnome-40-secureblue.yml
           - recipe-kde.yml
           - recipe-kde-40.yml
+          - recipe-kde-40-secureblue.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
