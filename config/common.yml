@@ -22,6 +22,7 @@ modules:
       - fish
       - wl-clipboard
       - git-lfs
+      - android-tools
 
       - rclone
       - restic
