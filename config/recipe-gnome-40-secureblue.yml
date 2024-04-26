@@ -1,5 +1,5 @@
 # image will be published to ghcr.io/<user>/<name>
-name: silverblue-fw13-amd-secureblue
+name: nulo-os-silverblue-secureblue
 description: Silverblue Secureblue for the Framework 13 - AMD 7040 Series
 
 base-image: ghcr.io/secureblue/silverblue-main-userns-hardened

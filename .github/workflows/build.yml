@@ -23,10 +23,8 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here
-          - recipe-gnome.yml
           - recipe-gnome-40.yml
           - recipe-gnome-40-secureblue.yml
-          - recipe-kde.yml
           - recipe-kde-40.yml
           - recipe-kde-40-secureblue.yml
     steps:

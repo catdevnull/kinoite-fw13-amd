@@ -1,5 +1,5 @@
 # image will be published to ghcr.io/<user>/<name>
-name: silverblue-fw13-amd
+name: nulo-os-silverblue
 description: Silverblue for the Framework 13 - AMD 7040 Series
 
 base-image: ghcr.io/ublue-os/silverblue-main
