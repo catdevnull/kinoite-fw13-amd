@@ -27,6 +27,8 @@ modules:
       - rclone
       - restic
 
+      - foo2zjs # real printer hours
+
       - kernel-tools # Needed for cpupower and turbostat
       - python3-pyudev # Needed for AMD S2Idle Debug Script
       - acpica-tools # Needed for AMD S2Idle Debug Script
