@@ -33,10 +33,10 @@ modules:
       - python3-pyudev # Needed for AMD S2Idle Debug Script
       - acpica-tools # Needed for AMD S2Idle Debug Script
       # tuned, copied roughly from Bluefin
-      - tuned
-      - tuned-ppd
-      - tuned-utils
-      - tuned-profiles-atomic
+      # - tuned
+      # - tuned-ppd
+      # - tuned-utils
+      # - tuned-profiles-atomic
 
       - virt-manager
       - virt-viewer
@@ -53,15 +53,15 @@ modules:
       - brave-browser
     optfix:
       - brave.com
-    remove:
-      - power-profiles-daemon
-  - type: systemd
-    system:
-      enabled:
-        - tuned.service
+    # remove:
+    #   - power-profiles-daemon
+  # - type: systemd
+  #   system:
+  #     enabled:
+  #       - tuned.service
 
-  - type: script
-    scripts:
-      - amdgpu_top.sh
-      # - update_firmware.sh
-      # - mesa_git.sh
+  # - type: script
+  #   scripts:
+  #     - amdgpu_top.sh
+  # - update_firmware.sh
+  # - mesa_git.sh
