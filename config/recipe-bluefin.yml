@@ -1,0 +1,13 @@
+# image will be published to ghcr.io/<user>/<name>
+name: nulo-os-bluefin-dx
+description: Bluefin DX - Nulo's version
+
+base-image: ghcr.io/ublue-os/bluefin-dx
+image-version: latest # latest is also supported if you want new updates ASAP
+
+modules:
+  - from-file: common-brave.yml
+  - type: rpm-ostree
+    install:
+      - foo2zjs
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
