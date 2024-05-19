@@ -27,7 +27,7 @@ jobs:
           # - recipe-gnome-40-secureblue.yml
           # - recipe-kde-40.yml
           # - recipe-kde-40-secureblue.yml
-          # - recipe-bluefin-dx.yml
+          - recipe-bluefin-dx.yml
           - recipe-aurora-dx.yml
     steps:
       # the build is fully handled by the reusable github action
