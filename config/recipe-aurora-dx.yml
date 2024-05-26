@@ -12,4 +12,6 @@ modules:
       - foo2zjs
       - foo2xqx
       - git-lfs
+      - kontact
+      - merkuro
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
